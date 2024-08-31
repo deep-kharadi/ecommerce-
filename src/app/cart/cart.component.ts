@@ -9,6 +9,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar"; // Import MatToolbarModule
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-cart",
@@ -16,6 +17,7 @@ import { MatToolbarModule } from "@angular/material/toolbar"; // Import MatToolb
   imports: [
     CommonModule,
     FormsModule,
+    // Router,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
@@ -31,7 +33,7 @@ export class CartComponent implements OnInit {
   cartItems: any = [];
   totalPrice = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,private router: Router) {}
 
   ngOnInit(): void {
     this.cartService.cart$.subscribe((items) => {
@@ -46,5 +48,10 @@ export class CartComponent implements OnInit {
 
   removeFromCart(productId: number): void {
     this.cartService.updateQuantity(productId, 0); // Set quantity to 0 to remove
+  }
+
+  buy(): void {
+    // Navigate to the summary page
+    this.router.navigate(['/summary']);
   }
 }

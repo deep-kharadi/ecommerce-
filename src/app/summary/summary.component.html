@@ -1,0 +1,23 @@
+<br>
+<mat-toolbar style="color: gray;">
+    <span>Order Summary</span>
+</mat-toolbar>
+<div class="product-grid">
+    <mat-card>
+
+        <mat-card-content>
+            <div class="cart-grid">
+                <mat-list-item *ngFor="let item of purchasedItems">
+                    <div class="item-details">
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                        <mat-card-subtitle>${{item.price}}</mat-card-subtitle>
+                        <div>Quantity: {{item.quantity}}</div>
+                    </div>
+                </mat-list-item>
+            </div>
+            <mat-divider></mat-divider>
+            <h3>Total: ${{totalPrice.toFixed(2)}}</h3>
+
+        </mat-card-content>
+    </mat-card>
+</div>

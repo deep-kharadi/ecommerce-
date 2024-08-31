@@ -1,0 +1,70 @@
+// Define SCSS variables for consistent styling
+$primary-color: #3f51b5; // Primary color for the header
+$card-background: #f5f5f5; // Light background color for cards
+$card-border: #ddd; // Border color for cards
+$spacer: 16px; // Spacing between elements
+
+.summary-card {
+  max-width: 800px;
+  margin: auto;
+  padding: $spacer;
+  background-color: $card-background;
+
+  mat-card-header {
+    background-color: $primary-color;
+    color: white;
+    padding: $spacer;
+  }
+
+  mat-card-content {
+    padding: $spacer;
+  }
+
+  mat-list-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $card-border;
+    padding: $spacer;
+
+    .item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      mat-card-title {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      mat-card-subtitle {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }
+
+  .total {
+    text-align: right;
+    margin-top: $spacer;
+
+    h3 {
+      margin: 0;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .summary-card {
+    padding: 8px;
+  }
+
+  mat-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .total {
+    text-align: center;
+  }
+}

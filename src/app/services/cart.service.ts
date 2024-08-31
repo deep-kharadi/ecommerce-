@@ -24,7 +24,6 @@ export class CartService {
     } else {
       this.cartItems.push(product);
     }
-    console.log("cartItems",this.cartItems)
     this.cartSubject.next(this.cartItems);
   }
 
