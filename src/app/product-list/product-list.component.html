@@ -7,15 +7,22 @@
     <ng-container *ngFor="let product of products">
       <mat-grid-tile>
         <mat-card>
-          <img mat-card-image [src]="product.imageUrl" alt="{{product.name}}" >
+          <mat-card-header>
+            <mat-card-title>{{product.name}}</mat-card-title>
+            <mat-card-subtitle>\${{product.price}}</mat-card-subtitle>
+          </mat-card-header>
           <mat-card-content>
-            <p>{{product.name}}</p>
-            <p>${{product.price}}</p>
+            <img mat-card-image [src]="product.imageUrl" alt="{{product.name}}">
+
           </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary"
+              (click)="addToCart(product)">Add to Cart</button>
+          </mat-card-actions>
         </mat-card>
       </mat-grid-tile>
     </ng-container>
 
   </mat-grid-list>
-  
+
 </div>
