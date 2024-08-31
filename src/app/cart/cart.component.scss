@@ -1,0 +1,66 @@
+// Define SCSS variables for consistent styling
+$primary-color: #3f51b5; // Angular Material Primary Color
+$card-padding: 16px;
+$spacer: 16px;
+
+.cart-card {
+  max-width: 900px;
+  margin: auto;
+  padding: $card-padding;
+
+  mat-card-header {
+    background-color: $primary-color;
+    color: white;
+  }
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacer;
+
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    padding: $card-padding;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .item-info {
+    margin-bottom: $spacer;
+
+    mat-card-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    mat-card-subtitle {
+      font-size: 14px;
+    }
+  }
+
+  .quantity-field {
+    margin: $spacer 0;
+  }
+
+  button {
+    margin-top: $spacer;
+  }
+}
+
+.total {
+  text-align: right;
+  margin: $spacer 0;
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .cart-grid {
+    grid-template-columns: 1fr; // Stack items vertically on small screens
+  }
+
+  .total {
+    text-align: center;
+  }
+}

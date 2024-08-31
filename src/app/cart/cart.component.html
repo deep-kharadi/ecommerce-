@@ -1,14 +1,35 @@
-<p>cart works!</p>
-<div *ngIf="cartItems.length > 0">
-    <div class="cart-item" *ngFor="let item of cartItems">
-      <h3>{{item.name}}</h3>
-      <p>\${{item.price}}</p>
-      <input type="number" [(ngModel)]="item.quantity" (ngModelChange)="updateQuantity(item.id, item.quantity)" min="1">
-      <button (click)="removeFromCart(item.id)">Remove</button>
-    </div>
-    <h3>Total: \${{totalPrice}}</h3>
-  </div>
-  <div *ngIf="cartItems.length === 0">
-    <p>Your cart is empty.</p>
-  </div>
-  
+<br>
+<mat-toolbar color="primary">
+  <span>Your Cart</span>
+</mat-toolbar>
+<div class="product-grid">
+
+    <mat-card-content>
+      <div class="cart-grid">
+        <mat-card class="cart-item" *ngFor="let item of cartItems">
+          <mat-card-content>
+            <div class="item-info">
+              <mat-card-title>{{item.name}}</mat-card-title>
+              <mat-card-subtitle>\${{item.price}}</mat-card-subtitle>
+            </div>
+            <mat-form-field class="quantity-field">
+              <mat-label>Quantity</mat-label>
+              <input matInput type="number" [(ngModel)]="item.quantity" (ngModelChange)="updateQuantity(item.id, item.quantity)" min="1">
+            </mat-form-field>
+            <button mat-icon-button (click)="removeFromCart(item.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="total">
+        <h3>Total: \${{totalPrice.toFixed(2)}}</h3>
+      </div>
+    </mat-card-content>
+  <mat-card *ngIf="cartItems.length === 0">
+    <mat-card-content>
+      <p>Your cart is empty.</p>
+    </mat-card-content>
+  </mat-card>
+</div>
