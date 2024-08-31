@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HeaderComponent } from './header/header.component'; // Import HeaderComponent
 
 export interface Tile {
   color: string;
@@ -16,7 +17,7 @@ export interface Tile {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,CommonModule,MatToolbarModule,MatButtonModule,MatCardModule,MatGridListModule],
+  imports: [RouterOutlet,RouterLink,CommonModule,MatToolbarModule,MatButtonModule,MatCardModule,MatGridListModule,HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
