@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <span>Product List</span>
+</mat-toolbar>
+
+<div class="product-grid">
+  <mat-grid-list [cols]="gridCols" rowHeight="500px" gutterSize="30px">
+    <ng-container *ngFor="let product of products">
+      <mat-grid-tile>
+        <mat-card>
+          <img mat-card-image [src]="product.imageUrl" alt="{{product.name}}" >
+          <mat-card-content>
+            <p>{{product.name}}</p>
+            <p>${{product.price}}</p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </ng-container>
+
+  </mat-grid-list>
+  
+</div>
